@@ -1,0 +1,65 @@
+body {
+  font-size: 1.2em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li[ui-sref]:hover {
+  display: inline-block;
+  cursor: pointer;
+  background: gray;
+}
+
+.loading-icon {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+}
+
+.welcome {
+  text-align: center;
+  border: solid gray 2px;
+  padding: 20px;
+}
+
+.item-list {
+  padding-left: 0;
+  margin: 10px;
+}
+
+.item {
+  margin: 5px;
+  border-bottom: solid gray 2px;
+  width: 18%;
+}
+
+.item-name {
+  color: green;
+}
+
+.item-desc {
+  color: grey;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.table-style {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-row-style {
+  width: 100%;
+}
+
+.table-col-style {
+  width: 50%;
+}
