@@ -1,0 +1,50 @@
+.loading-indicator {
+    display: block;
+    width: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 40%;
+    z-index: 100;
+    background-color: #FFF;
+}
+
+.loading-indicator img {
+    width: 70px;
+    background-color: #FFF;
+}
+
+.ui-view-placeholder {
+    margin-top: 60px;
+}
+
+.signup-form {
+    margin-left: 25%;
+    width: 50%;
+    align: center;
+}
+
+.my-info {
+    margin-left: 10px;
+    width: 50%;
+}
+
+legend {
+    color: white;
+}
+
+form button {
+    background-color: white;
+    color: black;
+}
+
+form button:disabled {
+    background: #eee;
+    color: #aaa;
+    border-color: #aaa;
+    cursor: default;
+    text-shadow: none;
+    position: static;
+    box-shadow: none;   
+}
