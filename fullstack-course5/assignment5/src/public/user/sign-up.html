@@ -61,6 +61,7 @@
                 <input class="form-control" type="text" name="favoriteMenu" placeholder="Example: A1, A2, B1, B2..."
                     ng-model="signupCtrl.user.favorite" 
                     ng-blur="signupCtrl.validateFavorite()"
+                    ng-focus="signupCtrl.unvalidFavorite = undefined;"
                     ng-disabled="signupCtrl.completed">
                     <span ng-if="signupCtrl.unvalidFavorite && regForm.favoriteMenu.$touched">
                         No such menu number exists
@@ -69,10 +70,9 @@
         <hr>
 
         <div>
-            <button
-                ng-disabled="regForm.$invalid || signupCtrl.isInvalid() || signupCtrl.completed"
-                ng-click="signupCtrl.submit()">Submit
-
+            <button ng-disabled="regForm.$invalid || signupCtrl.isInvalid() || signupCtrl.completed"
+                ng-click="signupCtrl.submit()">
+                Submit
             </button>
             <span ng-if="signupCtrl.completed">
                 Your information has been save

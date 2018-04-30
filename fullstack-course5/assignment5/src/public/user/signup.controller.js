@@ -14,7 +14,7 @@
         $ctrl.validateFavorite = function() {
             var promise = UserService.getFavoriteItem($ctrl.user.favorite);
             promise.then(function (result) {
-                $ctrl.unvalidFavorite = false;
+                $ctrl.unvalidFavorite = (result == undefined);
             }).catch(function (error) {
                 $ctrl.unvalidFavorite = true;
             });

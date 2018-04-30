@@ -49,7 +49,14 @@ function routeConfig ($stateProvider) {
     })
     .state('public.myinfo', {
       url: '/myinfo',
-      templateUrl: 'src/public/user/my-info.html',
+      templateProvider: ['UserService', '$templateRequest', function(UserService, $templateRequest) {
+        var userInfo = UserService.getUserInfo();
+        if (userInfo == undefined) {
+          return $templateRequest('src/public/user/unregistered.template.html');
+        } else {
+          return $templateRequest('src/public/user/registered.template.html');
+        }
+      }],
       controller: 'MyInfoController',
       controllerAs: 'myInfoCtrl',
       resolve: {
@@ -58,13 +65,12 @@ function routeConfig ($stateProvider) {
         }],
         favoriteItem: ['UserService', function (UserService) {
           var user = UserService.getUserInfo();
-          var favorite;
-          if (user != undefined && user.favorite != undefined) {
-            favorite = UserService.getFavoriteItem(user.favorite);
-          }          
-          return favorite;
+          if (user == undefined || user.favorite == undefined) {
+            return undefined;
+          }
+          return UserService.getFavoriteItem(user.favorite);
         }]
       }
-    });
+    })
 }
 })();

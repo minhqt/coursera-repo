@@ -7,16 +7,17 @@
     UserService.$inject = ['$http', 'ApiPath'];
     function UserService($http, ApiPath) {
       var service = this;
-      var userInfo = new Object;
+      var userInfo;
 
       service.getFavoriteItem = function(itemshortName) {
+        var result = new Object;
         return $http({
           method: "GET",
           url: (ApiPath + "/menu_items/" + itemshortName.toUpperCase() + ".json"),
-        }).then(function (result) {
-          return result.data;
+        }).then(function (response) {
+          return response.data;
         }).catch(function (error) {
-          return error;
+          return undefined;
         });
       }
 
